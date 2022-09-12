@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/tasks")
@@ -23,5 +24,10 @@ public class TaskController {
     public List<TaskDto> getTasks() {
         List<Task> tasks = service.getAllTasks();
         return taskMapper.mapToTaskDtoList(tasks);
+    }
+
+    @GetMapping(value = "{taskId}")
+    public TaskDto getTask(@PathVariable Long taskId) throws TaskNotFoundException {
+        return taskMapper.mapToTaskDto(service.getTask(taskId).orElseThrow(TaskNotFoundException::new));
     }
 }
