@@ -11,6 +11,9 @@ public class TrelloConfig {
     @Value("${trello.api.endpoint.prod}")
     private String trelloApiEndpoint;
 
+    @Value("${admin.mail}")
+    private String adminMail;
+
     @Value("${trello.app.key}")
     private String trelloAppKey;
 
