@@ -7,6 +7,7 @@ import com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.trello.client.TrelloClient;
 import com.crud.tasks.trello.config.TrelloConfig;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,12 +18,12 @@ import java.util.Optional;
 import static java.util.Optional.ofNullable;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class TrelloService {
     private static final String SUBJECT = "Tasks: New Trello card";
-    private final TrelloClient trelloClient;
-    private final SimpleEmailService emailService;
-    private final AdminConfig adminConfig;
+    private TrelloClient trelloClient;
+    private SimpleEmailService emailService;
+    private AdminConfig adminConfig;
 
 
     public List<TrelloBoardDto> fetchTrelloBoards(){

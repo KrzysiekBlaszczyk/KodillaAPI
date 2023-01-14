@@ -19,7 +19,6 @@ import java.util.List;
 @CrossOrigin("*")
 public class TrelloController {
 
-    private final TrelloService trelloService;
     private final TrelloFacade trelloFacade;
 
     @GetMapping("boards")
