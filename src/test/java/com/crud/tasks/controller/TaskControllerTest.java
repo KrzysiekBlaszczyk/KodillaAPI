@@ -102,12 +102,12 @@ class TaskControllerTest {
     void shouldCreateTask() throws Exception {
         //Given
         Task task = new Task(1L, "Title", "Content");
-        TaskDto updatedTaskDto = new TaskDto(1L, "updatedTitle", "updatedContent");
-        when(taskMapper.mapToTask(updatedTaskDto)).thenReturn(task);
+        TaskDto createdTaskDto = new TaskDto(1L, "updatedTitle", "updatedContent");
+        when(taskMapper.mapToTask(createdTaskDto)).thenReturn(task);
         when(dbService.saveTask(task)).thenReturn(task);
-        when(taskMapper.mapToTaskDto(task)).thenReturn(updatedTaskDto);
+        when(taskMapper.mapToTaskDto(task)).thenReturn(createdTaskDto);
         Gson gson = new Gson();
-        String jsonContent = gson.toJson(updatedTaskDto);
+        String jsonContent = gson.toJson(createdTaskDto);
         //When & Then
         mockMvc
                 .perform(MockMvcRequestBuilders
