@@ -26,6 +26,8 @@ public class MailCreatorService {
         context.setVariable("admin_name", adminConfig.getAdminName());
         context.setVariable("company_name", "Kodilla");
         context.setVariable("goodbye_message", "Thank you for using our application");
+        context.setVariable("show_button", false);
+        context.setVariable("if_friend", true);
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
 }
