@@ -11,6 +11,7 @@ import org.thymeleaf.context.Context;
 @RequiredArgsConstructor
 public class MailCreatorService {
 
+    @Autowired
     @Qualifier("templateEngine")
     private TemplateEngine templateEngine;
 
