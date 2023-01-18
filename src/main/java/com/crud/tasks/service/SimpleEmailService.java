@@ -19,7 +19,6 @@ import java.util.Optional;
 public class SimpleEmailService {
     private final JavaMailSender javaMailSender;
 
-    @Autowired
     private MailCreatorService mailCreatorService;
 
     public void send(final Mail mail) {
